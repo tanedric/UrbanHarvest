@@ -7,7 +7,7 @@ import FarmHighlights from "@/components/farm-highlights"
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="border-b">
+      {/* <header className="border-b">
         <div className="container flex h-16 items-center justify-between px-4 md:px-6">
           <Link href="/" className="flex items-center gap-2">
             <Leaf className="h-6 w-6 text-green-600" />
@@ -35,7 +35,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </header>
+      </header> */}
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-green-50 to-white">
           <div className="container px-4 md:px-6">
