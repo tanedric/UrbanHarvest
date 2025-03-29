@@ -31,6 +31,11 @@
       "static/chunks/main-app.js",
       "static/chunks/app/farm-dashboard/page.js"
     ],
+    "/cart/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/cart/page.js"
+    ],
     "/orders/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -40,26 +45,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/orders/[id]/page.js"
-    ],
-    "/farms/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/farms/page.js"
-    ],
-    "/farms/loading": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/farms/loading.js"
-    ],
-    "/cart/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/cart/page.js"
-    ],
-    "/farms/[slug]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/farms/[slug]/page.js"
     ]
   }
 }
