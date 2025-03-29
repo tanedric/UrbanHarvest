@@ -86,12 +86,6 @@ export function SiteHeader() {
             </Link>
           )}
 
-          <Link
-            href="/about"
-            className="text-sm font-medium text-gray-600 transition-colors hover:text-green-600 dark:text-gray-400 dark:hover:text-green-400"
-          >
-            About
-          </Link>
         </nav>
         <div className="flex items-center gap-2">
           {isAuthenticated ? (

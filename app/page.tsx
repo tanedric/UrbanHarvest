@@ -1,7 +1,10 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { FarmCard } from "@/components/farm-card"
-import { ProductCard } from "@/components/product-card"
+import ProductCard from "@/components/product-card"
+import { dummyFarms } from "@/lib/store"
+import FeaturedProducts from "@/components/featured-products"
+
 
 export default function Home() {
   return (
@@ -36,7 +39,7 @@ export default function Home() {
                 alt="Urban Farm"
                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
                 height="550"
-                src="/placeholder.svg?height=550&width=800"
+                src="https://hips.hearstapps.com/hmg-prod/images/cheerful-young-asian-woman-receiving-a-box-full-of-royalty-free-image-1686340421.jpg"
                 width="800"
               />
             </div>
@@ -45,7 +48,7 @@ export default function Home() {
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
+              {/* <div className="space-y-2"> */}
                 <div className="inline-block rounded-lg bg-green-100 px-3 py-1 text-sm text-green-800 dark:bg-green-800/30 dark:text-green-300">
                   Featured Farms
                 </div>
@@ -56,30 +59,19 @@ export default function Home() {
                   Discover the passionate urban farmers who are revolutionizing local food production and bringing fresh
                   produce to your neighborhood.
                 </p>
-              </div>
-            </div>
-            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 mt-8">
-              <FarmCard
-                name="Green Roof Gardens"
-                description="Rooftop farm specializing in heirloom tomatoes and leafy greens."
-                image="/placeholder.svg?height=200&width=300"
-                location="Downtown"
-                rating={4.8}
-              />
-              <FarmCard
-                name="Vertical Harvest"
-                description="Indoor vertical farm growing herbs and microgreens year-round."
-                image="/placeholder.svg?height=200&width=300"
-                location="Westside"
-                rating={4.7}
-              />
-              <FarmCard
-                name="Community Roots"
-                description="Community-based farm focusing on culturally diverse vegetables."
-                image="/placeholder.svg?height=200&width=300"
-                location="Eastside"
-                rating={4.9}
-              />
+              {/* </div> */}
+            </div><br />
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {dummyFarms.map((farm) => (
+                              <FarmCard
+                                key={farm.name}
+                                name={farm.name}
+                                description={farm.description}
+                                image={farm.image}
+                                location={farm.location}
+                                rating={farm.rating}
+                              />
+                            ))}
             </div>
             <div className="flex justify-center mt-8">
               <Link href="/farms">
@@ -108,35 +100,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 mt-8">
-              <ProductCard
-                id="1"
-                name="Heirloom Tomatoes"
-                description="Colorful mix of heritage tomato varieties."
-                price={4.99}
-                unit="lb"
-                farm="Green Roof Gardens"
-                image="/placeholder.svg?height=200&width=300"
-              />
-              <ProductCard
-                id="2"
-                name="Fresh Basil"
-                description="Aromatic basil grown in vertical systems."
-                price={2.99}
-                unit="bunch"
-                farm="Vertical Harvest"
-                image="/placeholder.svg?height=200&width=300"
-              />
-              <ProductCard
-                id="3"
-                name="Baby Bok Choy"
-                description="Tender Asian greens harvested young."
-                price={3.49}
-                unit="bundle"
-                farm="Community Roots"
-                image="/placeholder.svg?height=200&width=300"
-              />
-            </div>
+            <FeaturedProducts />
             <div className="flex justify-center mt-8">
               <Link href="/marketplace">
                 <Button className="bg-green-600 hover:bg-green-700 text-white">Browse All Products</Button>
@@ -150,9 +114,9 @@ export default function Home() {
               <img
                 alt="Food Waste Reduction"
                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
-                height="550"
-                src="/placeholder.svg?height=550&width=800"
-                width="800"
+                // height="550"
+                src="/lastImage.png"
+                // width="800"
               />
               <div className="space-y-4">
                 <div className="inline-block rounded-lg bg-green-100 px-3 py-1 text-sm text-green-800 dark:bg-green-800/30 dark:text-green-300">
@@ -166,7 +130,7 @@ export default function Home() {
                   distances, and ensure produce is harvested only when needed. This approach significantly reduces food
                   waste while providing you with the freshest possible produce.
                 </p>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                {/* <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Link href="/about">
                     <Button
                       variant="outline"
@@ -175,7 +139,7 @@ export default function Home() {
                       Learn More
                     </Button>
                   </Link>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

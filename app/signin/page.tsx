@@ -89,8 +89,8 @@ export default function SignIn() {
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-400">
               <p>Demo Accounts:</p>
-              <p>Customer: customer@example.com / password123</p>
-              <p>Farm: farm@example.com / farm123</p>
+              <p>Customer: ymlau@smu.edu.sg / password123</p>
+              <p>Farm: sales@citiponics.com / farm123</p>
             </div>
           </CardContent>
           <CardFooter>

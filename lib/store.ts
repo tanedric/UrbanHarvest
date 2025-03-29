@@ -73,15 +73,15 @@ interface AuthStore {
 const dummyUsers = [
   {
     id: "1",
-    name: "John Customer",
-    email: "customer@example.com",
+    name: "Ms LAU",
+    email: "ymlau@smu.edu.sg",
     password: "password123",
     role: "customer" as const,
   },
   {
     id: "2",
-    name: "Green Roof Gardens",
-    email: "farm@example.com",
+    name: "Citiponics Urban Vertical Farm",
+    email: "sales@citiponics.com",
     password: "farm123",
     role: "farmer" as const,
   },
@@ -317,6 +317,8 @@ export interface Product {
   unit: string
   farmId: string
   image: string
+  farm: string
+
 }
 
 interface FarmStore {
@@ -327,17 +329,17 @@ interface FarmStore {
 }
 
 // Dummy farms data
-const dummyFarms: Farm[] = [
+export const dummyFarms: Farm[] = [
   {
     id: "1",
-    name: "Green Roof Gardens",
-    slug: "green-roof-gardens",
+    name: "Citiponics Urban Vertical Farm",
+    slug: "citiponics-urban-vertical-farm",
     description: "Rooftop farm specializing in heirloom tomatoes and leafy greens.",
-    image: "/placeholder.svg?height=550&width=800",
+    image: "https://vulcanpost.com/wp-content/uploads/2020/06/Danielle-2.jpg",
     location: "Downtown",
-    address: "123 Rooftop Ave, Downtown, City",
-    phone: "(555) 123-4567",
-    email: "farm@example.com",
+    address: "700 Ang Mo Kio Ave 6, Level 6 Multi-Storey Carpark, Singapore 560700",
+    phone: "+65 9777 0520",
+    email: "sales@citiponics.com",
     rating: 4.8,
     reviewCount: 42,
     story:
@@ -349,10 +351,10 @@ const dummyFarms: Farm[] = [
   },
   {
     id: "2",
-    name: "Vertical Harvest",
-    slug: "vertical-harvest",
+    name: "Com Crop",
+    slug: "com-crop",
     description: "Indoor vertical farm growing herbs and microgreens year-round.",
-    image: "/placeholder.svg?height=550&width=800",
+    image: "https://psdchallenge.psd.gov.sg/images/default-source/challenge-library/Article-Image/challenge-2015-jul-013.jpg",
     location: "Westside",
     address: "456 Innovation Blvd, Westside, City",
     phone: "(555) 987-6543",
@@ -360,7 +362,7 @@ const dummyFarms: Farm[] = [
     rating: 4.7,
     reviewCount: 38,
     story:
-      "Vertical Harvest was founded by a team of engineers and plant scientists who wanted to revolutionize urban agriculture. Our state-of-the-art vertical farming system allows us to grow fresh produce year-round regardless of weather conditions.",
+      "Com Crop was founded by a team of engineers and plant scientists who wanted to revolutionize urban agriculture. Our state-of-the-art vertical farming system allows us to grow fresh produce year-round regardless of weather conditions.",
     growingMethods:
       "We use hydroponic systems with LED lighting optimized for plant growth. Our vertical setup allows us to grow 20 times more food per square foot than traditional farming while using 95% less water.",
     sustainabilityPractices:
@@ -388,60 +390,27 @@ const dummyFarms: Farm[] = [
 ]
 
 // Dummy products data
-const dummyProducts: Product[] = [
+export const dummyProducts: Product[] = [
   {
     id: "1",
     name: "Heirloom Tomatoes",
     description: "Colorful mix of heritage tomato varieties.",
     price: 4.99,
     unit: "lb",
-    farmId: "green-roof-gardens",
-    image: "/placeholder.svg?height=200&width=300",
+    farmId: "citiponics-urban-vertical-farm",
+    farm: "Citiponics Urban Vertical Farm",
+    image: "https://lilysgardenstore.com/cdn/shop/products/TomatoBeefsteakHeirloom.jpg?v=1635383528",
   },
-  {
-    id: "4",
-    name: "Organic Carrots",
-    description: "Sweet and crunchy carrots grown without pesticides.",
-    price: 3.29,
-    unit: "bunch",
-    farmId: "green-roof-gardens",
-    image: "/placeholder.svg?height=200&width=300",
-  },
-  {
-    id: "7",
-    name: "Bell Peppers",
-    description: "Colorful sweet peppers perfect for salads or cooking.",
-    price: 1.99,
-    unit: "each",
-    farmId: "green-roof-gardens",
-    image: "/placeholder.svg?height=200&width=300",
-  },
+  // com-crop, community-roots
   {
     id: "2",
     name: "Fresh Basil",
     description: "Aromatic basil grown in vertical systems.",
     price: 2.99,
     unit: "bunch",
-    farmId: "vertical-harvest",
-    image: "/placeholder.svg?height=200&width=300",
-  },
-  {
-    id: "5",
-    name: "Microgreens Mix",
-    description: "Nutrient-dense assortment of young seedlings.",
-    price: 5.99,
-    unit: "box",
-    farmId: "vertical-harvest",
-    image: "/placeholder.svg?height=200&width=300",
-  },
-  {
-    id: "8",
-    name: "Fresh Mint",
-    description: "Aromatic mint for teas, cocktails, and cooking.",
-    price: 2.49,
-    unit: "bunch",
-    farmId: "vertical-harvest",
-    image: "/placeholder.svg?height=200&width=300",
+    farmId: "com-crop",
+    farm: "Com Crop",
+    image: "https://www.treehugger.com/thmb/o6TcVg9avKc91QadK9QifsiwoDo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-155017585-ce203d1692f64490840f5375a8e2074b.jpg",
   },
   {
     id: "3",
@@ -450,7 +419,28 @@ const dummyProducts: Product[] = [
     price: 3.49,
     unit: "bundle",
     farmId: "community-roots",
-    image: "/placeholder.svg?height=200&width=300",
+    farm: "Community Roots",
+    image: "https://images.squarespace-cdn.com/content/v1/5d96d524052c897425394aaf/1736951245568-2RF8M9E0PYIJQBT3IQQX/bok-choy-vs-baby-bok-choy.jpeg?format=1500w",
+  },
+  {
+    id: "4",
+    name: "Organic Carrots",
+    description: "Sweet and crunchy carrots grown without pesticides.",
+    price: 3.29,
+    unit: "bunch",
+    farmId: "citiponics-urban-vertical-farm",
+    farm: "Citiponics Urban Vertical Farm",
+    image: "https://www.waangoo.com/cdn/shop/products/0025680_fresh-carrots.jpg?v=1694744711",
+  },
+  {
+    id: "5",
+    name: "Microgreens Mix",
+    description: "Nutrient-dense assortment of young seedlings.",
+    price: 5.99,
+    unit: "box",
+    farmId: "com-crop",
+    farm: "Com Crop",
+    image: "https://urbanagrifarms.com/wp-content/uploads/2021/01/MicroGreenMix.jpeg",
   },
   {
     id: "6",
@@ -459,7 +449,28 @@ const dummyProducts: Product[] = [
     price: 2.79,
     unit: "head",
     farmId: "community-roots",
-    image: "/placeholder.svg?height=200&width=300",
+    farm: "Community Roots",
+    image: "https://m.media-amazon.com/images/I/61sz7gbBAFL.jpg",
+  },
+  {
+    id: "7",
+    name: "Bell Peppers",
+    description: "Colorful sweet peppers perfect for salads or cooking.",
+    price: 1.99,
+    unit: "each",
+    farmId: "citiponics-urban-vertical-farm",
+    farm: "Citiponics Urban Vertical Farm",
+    image: "https://aanmc.org/wp-content/uploads/2023/09/bell-peppers-1200x800-1-1024x683.jpg",
+  },
+  {
+    id: "8",
+    name: "Fresh Mint",
+    description: "Aromatic mint for teas, cocktails, and cooking.",
+    price: 2.49,
+    unit: "bunch",
+    farmId: "com-crop",
+    farm: "Com Crop",
+    image: "https://www.freshveggies.sg/cdn/shop/products/Mint-001-FreshVeggiesSGFreshVegetablesOnlineDeliveryinSingapore.jpg?v=1600873096",
   },
   {
     id: "9",
@@ -468,7 +479,8 @@ const dummyProducts: Product[] = [
     price: 3.99,
     unit: "lb",
     farmId: "community-roots",
-    image: "/placeholder.svg?height=200&width=300",
+    farm: "Community Roots",
+    image: "https://quanshuiwetmarket.com/cdn/shop/products/JapaneseCucumbers.jpg?v=1595950784",
   },
 ]
 

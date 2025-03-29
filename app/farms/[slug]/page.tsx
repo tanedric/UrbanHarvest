@@ -4,7 +4,7 @@ import { useParams } from "next/navigation"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ProductCard } from "@/components/product-card"
+import ProductCard from "@/components/product-card"
 import { StarIcon, MapPin, Phone, Mail } from "lucide-react"
 import { useFarmStore } from "@/lib/store"
 
@@ -90,8 +90,10 @@ export default function FarmDetail() {
             </div>
 
             {products.length > 0 ? (
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-8">
-                {products.map((product) => (
+                  <div className="w-full mt-8">
+
+<div className="grid gap-6 mt-8 px-4" style={{ gridTemplateColumns: `repeat(auto-fit, minmax(100px, 1fr))` }}>
+{products.map((product) => (
                   <ProductCard
                     key={product.id}
                     id={product.id}
@@ -103,6 +105,7 @@ export default function FarmDetail() {
                     image={product.image}
                   />
                 ))}
+              </div>
               </div>
             ) : (
               <div className="text-center py-12">

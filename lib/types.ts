@@ -5,14 +5,14 @@ export interface Product {
   price: number
   unit: string
   image: string
-  category: string
-  farmId: string
-  farmName: string
-  distance: number
-  rating: number
-  harvestDate: string
-  availableQuantity: number
-  growingMethod: string
+  // category: string
+  // farmId: string
+  farm: string//farmName: string
+  // distance: number
+  // rating: number
+  // harvestDate: string
+  // availableQuantity: number
+  // growingMethod: string
 }
 
 export interface Farm {
@@ -30,6 +30,7 @@ export interface Farm {
   hours: string
   growingMethods: string
   sustainabilityPractices: string
+  image:string
   reviews: {
     name: string
     avatar: string

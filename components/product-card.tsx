@@ -15,7 +15,7 @@ interface ProductCardProps {
   image: string
 }
 
-export function ProductCard({ id, name, description, price, unit, farm, image }: ProductCardProps) {
+export default function ProductCard({ id, name, description, price, unit, farm, image }: ProductCardProps) {
   const { addToCart } = useCartStore()
   const { toast } = useToast()
 
