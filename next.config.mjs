@@ -32,10 +32,12 @@ const nextConfig = {
   webpack(config) {
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
-      '@': join(__dirname, '.'),
+      '@': join(__dirname), // @ = project root
     }
     return config
-  },
+  }
+  
+  ,
 }
 
 mergeConfig(nextConfig, userConfig)
