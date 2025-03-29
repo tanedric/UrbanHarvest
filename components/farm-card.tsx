@@ -1,43 +1,56 @@
 import Link from "next/link"
-import { MapPin, Star } from "lucide-react"
-import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import type { Farm } from "@/lib/types"
+import { Card, CardContent } from "@/components/ui/card"
+import { StarIcon } from "lucide-react"
 
 interface FarmCardProps {
-  farm: Farm
+  name: string
+  description: string
+  image: string
+  location: string
+  rating: number
 }
 
-export default function FarmCard({ farm }: FarmCardProps) {
+export function FarmCard({ name, description, image, location, rating }: FarmCardProps) {
   return (
-    <Card className="overflow-hidden">
-      <div className="relative h-48 w-full">
-        <img src={farm.coverImage || "/placeholder.svg"} alt={farm.name} className="h-full w-full object-cover" />
-      </div>
-      <CardContent className="p-4">
-        <div className="space-y-2">
+    <Link href={`/farms/${name.toLowerCase().replace(/\s+/g, "-")}`}>
+      <Card className="overflow-hidden transition-all hover:shadow-lg">
+        <img
+          alt={name}
+          className="aspect-[4/3] w-full object-cover"
+          height={300}
+          src={image || "/placeholder.svg"}
+          width={400}
+        />
+        <CardContent className="p-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-1 text-amber-500">
-              <Star className="h-4 w-4 fill-amber-500" />
-              <span className="text-sm font-medium">{farm.rating}</span>
-            </div>
-            <div className="flex items-center gap-1 text-gray-500">
-              <MapPin className="h-4 w-4" />
-              <span className="text-xs">{farm.distance} miles</span>
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-200">{name}</h3>
+            <div className="flex items-center gap-1">
+              <StarIcon className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+              <span className="text-sm font-medium">{rating}</span>
             </div>
           </div>
-          <Link href={`/farms/${farm.id}`}>
-            <h3 className="font-semibold">{farm.name}</h3>
-          </Link>
-          <p className="text-sm text-gray-500 line-clamp-2">{farm.description}</p>
-        </div>
-      </CardContent>
-      <CardFooter className="p-4 pt-0">
-        <Button asChild className="w-full" variant="outline" size="sm">
-          <Link href={`/farms/${farm.id}`}>View Farm</Link>
-        </Button>
-      </CardFooter>
-    </Card>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">{description}</p>
+          <div className="mt-2 flex items-center text-sm text-gray-500 dark:text-gray-400">
+            <svg
+              className=" mr-1 h-4 w-4"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            {location}
+          </div>
+        </CardContent>
+      </Card>
+    </Link>
   )
 }
 

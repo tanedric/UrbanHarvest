@@ -1,47 +1,65 @@
-import Link from "next/link"
-import { Leaf, ShoppingCart } from "lucide-react"
+"use client"
+
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import type { Product } from "@/lib/types"
+import { Card, CardContent } from "@/components/ui/card"
+import { useCartStore } from "@/lib/store"
+import { useToast } from "@/hooks/use-toast"
 
 interface ProductCardProps {
-  product: Product
+  id: string
+  name: string
+  description: string
+  price: number
+  unit: string
+  farm: string
+  image: string
 }
 
-export default function ProductCard({ product }: ProductCardProps) {
+export function ProductCard({ id, name, description, price, unit, farm, image }: ProductCardProps) {
+  const { addToCart } = useCartStore()
+  const { toast } = useToast()
+
+  const handleAddToCart = () => {
+    addToCart({
+      id,
+      name,
+      price,
+      unit,
+      farm,
+      image,
+      quantity: 1,
+    })
+
+    toast({
+      title: "Added to cart",
+      description: `${name} has been added to your cart.`,
+    })
+  }
+
   return (
-    <Card className="overflow-hidden">
-      <div className="relative">
-        <Link href={`/marketplace/${product.id}`}>
-          <img src={product.image || "/placeholder.svg"} alt={product.name} className="h-48 w-full object-cover" />
-        </Link>
-      </div>
+    <Card className="overflow-hidden transition-all hover:shadow-lg">
+      <img
+        alt={name}
+        className="aspect-[4/3] w-full object-cover"
+        height={300}
+        src={image || "/placeholder.svg"}
+        width={400}
+      />
       <CardContent className="p-4">
-        <div className="space-y-2">
-          <Link
-            href={`/farms/${product.farmId}`}
-            className="inline-flex items-center gap-1 text-green-600 hover:underline"
-          >
-            <Leaf className="h-3 w-3" />
-            <span className="text-xs font-medium">{product.farmName}</span>
-          </Link>
-          <Link href={`/marketplace/${product.id}`}>
-            <h3 className="font-semibold line-clamp-1">{product.name}</h3>
-          </Link>
-          <div className="flex items-center justify-between">
-            <p className="font-medium text-green-600">
-              ${product.price.toFixed(2)} / {product.unit}
-            </p>
-            <p className="text-xs text-gray-500">{product.distance} miles</p>
+        <h3 className="text-xl font-bold text-green-800 dark:text-green-200">{name}</h3>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{description}</p>
+        <div className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+          From <span className="font-medium text-green-600 dark:text-green-400">{farm}</span>
+        </div>
+        <div className="mt-4 flex items-center justify-between">
+          <div className="text-lg font-bold text-green-800 dark:text-green-200">
+            ${price.toFixed(2)} <span className="text-sm font-normal">/ {unit}</span>
           </div>
+          <Button onClick={handleAddToCart} className="bg-green-600 hover:bg-green-700 text-white">
+            Add to Cart
+          </Button>
         </div>
       </CardContent>
-      <CardFooter className="p-4 pt-0">
-        <Button className="w-full bg-green-600 hover:bg-green-700" size="sm">
-          <ShoppingCart className="mr-2 h-4 w-4" />
-          Add to Cart
-        </Button>
-      </CardFooter>
     </Card>
   )
 }

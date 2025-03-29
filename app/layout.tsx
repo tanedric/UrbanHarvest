@@ -2,19 +2,16 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import Link from "next/link"
-import { ArrowRight, Leaf, ShoppingBasket, TruckIcon, Users } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import FeaturedProducts from "@/components/featured-products"
-import FarmHighlights from "@/components/farm-highlights"
-
+import { SiteHeader } from "@/components/site-header"
+import { ThemeProvider } from "@/components/theme-provider"
+import { Toaster } from "@/components/ui/toaster"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "UrbanHarvest - Fresh Urban Produce",
-  description: "Connect with local urban farms, reduce food waste, and enjoy the freshest produce in your community.",
-    generator: 'v0.dev'
+  title: "Urban Harvest - Fresh Produce from Urban Farms",
+  description:
+    "Connect directly with local urban farms. Get fresh, sustainable produce delivered to your doorstep while supporting local agriculture and reducing food waste.",
 }
 
 export default function RootLayout({
@@ -24,44 +21,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <div className="flex flex-col min-h-screen">
-      
-      </div>
       <body className={inter.className}>
-      <header className="border-b">
-        <div className="container flex h-16 items-center justify-between px-4 md:px-6">
-          <Link href="/" className="flex items-center gap-2">
-            <Leaf className="h-6 w-6 text-green-600" />
-            <span className="text-xl font-bold">UrbanHarvest</span>
-          </Link>
-          <nav className="hidden md:flex gap-6">
-            <Link href="/marketplace" className="text-sm font-medium hover:underline underline-offset-4">
-              Marketplace
-            </Link>
-            <Link href="/farms" className="text-sm font-medium hover:underline underline-offset-4">
-              Farms
-            </Link>
-            <Link href="/about" className="text-sm font-medium hover:underline underline-offset-4">
-              About
-            </Link>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Link href="/marketplace">
-              <Button variant="outline" size="sm" className="hidden md:flex">
-                Browse Products
-              </Button>
-            </Link>
-            <Link href="/login">
-              <Button size="sm">Sign In</Button>
-            </Link>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+          <div className="relative flex min-h-screen flex-col">
+            <SiteHeader />
+            <div className="flex-1">{children}</div>
+            <Toaster />
           </div>
-        </div>
-      </header>
-        {children}</body>
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
 
-
-
-import './globals.css'
