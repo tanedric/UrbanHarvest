@@ -373,7 +373,7 @@ export const dummyFarms: Farm[] = [
     name: "Community Roots",
     slug: "community-roots",
     description: "Community-based farm focusing on culturally diverse vegetables.",
-    image: "/placeholder.svg?height=550&width=800",
+    image: "https://www.hometeamns.sg/frontline/wp-content/uploads/2024/03/How-to-start-the-urban-farming-movement-Hero.jpg",
     location: "Eastside",
     address: "789 Neighborhood St, Eastside, City",
     phone: "(555) 456-7890",

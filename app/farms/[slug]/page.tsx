@@ -64,6 +64,11 @@ export default function FarmDetail() {
                     <span>{farm.email}</span>
                   </div>
                 </div>
+
+<br />
+                <Link href={`/farm-tour/${slug}`}>
+                <Button className="bg-green-600 hover:bg-green-700 text-white">AR Farm Tour</Button>
+              </Link>
               </div>
               <img
                 alt={farm.name}

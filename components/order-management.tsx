@@ -172,7 +172,7 @@ export function OrderManagement({ filterStatus }: OrderManagementProps) {
                       </Button>
                     )}
 
-                    {order.status === "delivered" && (
+                    {/* {order.status === "delivered" && (
                       <Link href={`/farm-dashboard/orders/${order.id}`}>
                         <Button
                           variant="outline"
@@ -181,7 +181,7 @@ export function OrderManagement({ filterStatus }: OrderManagementProps) {
                           View Details
                         </Button>
                       </Link>
-                    )}
+                    )} */}
                   </div>
                 </div>
               </div>

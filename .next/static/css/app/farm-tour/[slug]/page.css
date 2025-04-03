@@ -1,0 +1,121 @@
+/*!**********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[3]!./app/farm-tour/[slug]/styles.module.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************/
+.styles_tourContainer__5k0M2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .styles_imageContainer__sXURe {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .styles_tourImage__K0Gy0 {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  
+  .styles_navButton__wrNqz {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  /* Blinking animation for navigation buttons */
+  .styles_blinkingButton__1QUZj {
+    animation: styles_pulse__0HYby 2s infinite;
+  }
+  
+  @keyframes styles_pulse__0HYby {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* Information panel styles */
+  .styles_infoHeader__acVav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+  
+  .styles_infoHeader__acVav h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+  }
+  
+  .styles_toggleButton__hoGX2 {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+  }
+  
+  .styles_infoContent__NY2UO {
+    font-size: 14px;
+    line-height: 1.4;
+    overflow-y: auto;
+    height: calc(100% - 30px); /* Subtract header height */
+    padding-right: 5px;
+    color: white;
+  }
+  
+  /* Custom scrollbar for info content */
+  .styles_infoContent__NY2UO::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .styles_infoContent__NY2UO::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+  
+  .styles_infoContent__NY2UO::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+  }
+  
+  .styles_infoContent__NY2UO::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+  }
+  
+  

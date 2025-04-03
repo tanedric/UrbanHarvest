@@ -16,13 +16,19 @@ export function SiteHeader() {
   const showCartIcon = pathname === "/marketplace" || pathname === "/farms" || pathname.startsWith("/farms/")
   const isFarmer = user?.role === "farmer"
 
+
+  // Check if the current page's pathname starts with "/farm-tour/"
+  const isFarmTourPage = pathname.startsWith('/farm-tour/');
+
+
   const handleLogout = () => {
     logout()
     router.push("/")
+  
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white dark:bg-gray-950">
+    !isFarmTourPage && (<header className="sticky top-0 z-50 w-full border-b bg-white dark:bg-gray-950">
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <svg
@@ -44,15 +50,16 @@ export function SiteHeader() {
           <span className="text-xl font-bold text-green-800 dark:text-green-200">UrbanHarvest</span>
         </Link>
         <nav className="hidden md:flex gap-6">
-          <Link
+          
+
+          {!isFarmer && (
+            <>
+            <Link
             href="/"
             className="text-sm font-medium text-gray-600 transition-colors hover:text-green-600 dark:text-gray-400 dark:hover:text-green-400"
           >
             Home
           </Link>
-
-          {!isFarmer && (
-            <>
               <Link
                 href="/marketplace"
                 className="text-sm font-medium text-gray-600 transition-colors hover:text-green-600 dark:text-gray-400 dark:hover:text-green-400"
@@ -68,14 +75,14 @@ export function SiteHeader() {
             </>
           )}
 
-          {isFarmer && (
+          {/* {isFarmer && (
             <Link
               href="/farm-dashboard"
               className="text-sm font-medium text-gray-600 transition-colors hover:text-green-600 dark:text-gray-400 dark:hover:text-green-400"
             >
               Dashboard
             </Link>
-          )}
+          )} */}
 
           {isAuthenticated && !isFarmer && (
             <Link
@@ -140,7 +147,8 @@ export function SiteHeader() {
           )}
         </div>
       </div>
-    </header>
+    </header>)
+    
   )
 }
 

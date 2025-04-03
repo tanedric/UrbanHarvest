@@ -36,30 +36,11 @@
       "static/chunks/main-app.js",
       "static/chunks/app/farms/[slug]/page.js"
     ],
-    "/cart/page": [
+    "/farm-tour/[slug]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/cart/page.js"
-    ],
-    "/signin/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/signin/page.js"
-    ],
-    "/farm-dashboard/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/farm-dashboard/page.js"
-    ],
-    "/orders/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/orders/page.js"
-    ],
-    "/orders/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/orders/[id]/page.js"
+      "static/css/app/farm-tour/[slug]/page.css",
+      "static/chunks/app/farm-tour/[slug]/page.js"
     ]
   }
 }
